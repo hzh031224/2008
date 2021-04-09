@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        new Promise(function(resolve, reject){
+
+        $.ajax({
+        url: "http://vue.api.comcto.com/api/password1.php",
+        type: "get",
+        success:function(data){
+            console.log("第 1 位密码: ",data)
+            resolve(data)
+        }
+        })
+
+    }).then(function (d){
+    console.log("接收第1步的结果：",d )
+    return new Promise(function(resolve, reject){
+      $.ajax({
+        url: "http://vue.api.comcto.com/api/password2.php",
+        type: "get",
+        success:function(data){
+          console.log("第 2 位密码: ",data)
+          resolve(data)
+        }
+      })
+    })
+
+  }).then(function(d){
+    console.log("接收第2步的结果：",d )
+    return new Promise(function(resolve, reject){
+      $.ajax({
+        url: "http://vue.api.comcto.com/api/password3.php",
+        type: "get",
+        success:function(data){
+            console.log("第 3 位密码: ",data)
+          resolve(data)
+        }
+      })
+    })
+
+  }).then(function(d){
+    console.log("接收第3步的结果：",d )
+    return new Promise(function(resolve, reject){
+      $.ajax({
+        url: "http://vue.api.comcto.com/api/password4.php",
+        type: "get",
+        success:function(data){
+          resolve(data)
+        }
+      })
+    })
+
+  })
+    </script>
+</body>
+</html>
