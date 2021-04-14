@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../vue.js"></script>
+<script src="../axios.min.js"></script>
+<body>
+    <div id="app">
+        <input v-model="name">
+        <p>{{tip}}</p>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:"#app",
+            data:{
+                name:"",
+                tip:""
+            },
+            methods:{
+                checkName:function(name){
+                    var self = this;
+                    let api_url="http://vue.api.comcto.com/api/checkname.php"
+                    let names = this.name
+                    axios.get(api_url+"?name="+names).then(function(res){
+                        self.tip=res.data.msg
+                    })
+                }
+            },
+            watch:{
+                name:function(val){
+                    this.checkName(val);
+                    this.tip='正在验证';
+                }
+            }
+        })
+    </script>
+</body>
+</html>

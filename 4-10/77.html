@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function * hzh(){
+        //     yield 'hello';
+        //     yield 'world';
+        //     return 'ending';
+        // }
+        // var hao = hzh();
+        // hao1 = hao.next(); 
+        // console.log(hao1);
+        // hao2 = hao.next(); 
+        // console.log(hao2);
+        // hao3 = hao.next(); 
+        // console.log(hao3);
+
+        function * gen(){
+            yield 123+456;
+        }
+        var hzh =gen();
+        hzh1 = hzh.next();
+        console.log(hzh1);
+    </script>
+</body>
+</html>
