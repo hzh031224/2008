@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <blog-post v-bind:aaa="hello"></blog-post>
+    </div>
+    <script>
+        Vue.component("blog-post",{
+            props:['aaa'],
+            template:"<h3>{{aaa}}</h3>"
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                hello:"hello word"
+            }
+        })
+    </script>
+</body>
+</html>
